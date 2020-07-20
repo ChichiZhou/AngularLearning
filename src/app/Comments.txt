@@ -1,0 +1,4 @@
+DOM (Document Object Model) vs HTML
+DOM 用来表示 object 的结构（树状结构）
+而 HTML 是用来实现 DOM 的。
+当 browser 解析一个 HTML 的时候，会在内存中创建一个objects组成的树状结构

@@ -12,11 +12,20 @@ import { CoursesService } from './courses.service';
             {{ courseElement }}
         </li>
     </ul>
-    
+
+    <img [src]="imageURL" />
+    <table>
+        <tr>
+            <td [attr.colspan]="colSpan"></td>
+        </tr>
+    </table>
     `
 })
 export class CoursesComponent{
     title = "List of Courses";
+    imageURL = "http://lorempixel.com/400/200";
+    colSpan = 2;
+
     getTitle(){
         return this.title;
     };
