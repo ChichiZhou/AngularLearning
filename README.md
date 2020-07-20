@@ -34,3 +34,9 @@ CREATE src/app/course/course.component.spec.ts (628 bytes)
 CREATE src/app/course/course.component.ts (269 bytes)
 UPDATE src/app/app.module.ts (553 bytes)
 HedeMacBook-Pro:hello-world hezhou$ 
+
+## Create new Service
+HedeMacBook-Pro:hello-world hezhou$ ng g s email
+CREATE src/app/email.service.spec.ts (328 bytes)
+CREATE src/app/email.service.ts (134 bytes)
+HedeMacBook-Pro:hello-world hezhou$ 
