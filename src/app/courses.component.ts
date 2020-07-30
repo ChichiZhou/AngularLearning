@@ -16,6 +16,7 @@ import { CoursesService } from './courses.service';
     // Property binding 使用 []   <img [src]="imageURL" />
     // Bind a property(imageURL) of component to a property of DOM element(src)
     // 绑定的目标是 property of DOM object 
+    // Component => View
 
     // Attribute Binding 目的是绑定到 HTML attirbute
     // 使用 [attr.colspan]
@@ -44,7 +45,10 @@ import { CoursesService } from './courses.service';
             <td [attr.colspan]="colSpan"></td>
         </tr>
     </table>
-    <button (click)="onSave()" [style.backgourndColor]="isActive ? 'blue' : 'white'" class="btn btn-primary" [class.active]="isActive">Save</button>
+    <button (click)="onSave($event)" [style.backgourndColor]="isActive ? 'blue' : 'white'" class="btn btn-primary" [class.active]="isActive">Save</button>
+    <input [value]="email" (keyup.enter)="email = $event.target.value; onKeyUp()"/>
+    <input [(ngModel))]="email" (keyup.enter)="onKeyUp()"/>
+    {{text | summary: 10}}
     `
 })
 export class CoursesComponent{
@@ -52,10 +56,17 @@ export class CoursesComponent{
     imageURL = "http://lorempixel.com/400/200";
     colSpan = 2;    // 设定 column
     isActive = true;  // class binding 
+    email;
+    courses;
+    test = `lorem ifdklaklfdalkfda kfdlajkfldajflkda kljl`;
+
+
+
+
     getTitle(){
         return this.title;
     };
-    courses;
+    
 
     // Dependency injection means injecting the dependency of a class into its constructor
     // 意思是 Angular 为你创建 objects
@@ -73,7 +84,17 @@ export class CoursesComponent{
     // 2.This is not extenable.
     // 3.The component should not include others besides the presentation logic.
     
-    onSave(){
-        console.log("button click");
+    // DOM evnets 
+    onSave($event){
+        $event.stopPropagation();     // 用来阻止 event bubbling
+        console.log("button click", $event);
+    }
+
+    // Two way binding
+    // 达到 Component 和 View 的相互传递信息
+    // [(ngModel)]
+    // 需要在 app.module 引入 FormsModel
+    onKeyUp(){
+        console.log("Enter pressed" + this.email);
     }
 }
