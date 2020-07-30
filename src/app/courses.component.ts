@@ -47,7 +47,7 @@ import { CoursesService } from './courses.service';
     </table>
     <button (click)="onSave($event)" [style.backgourndColor]="isActive ? 'blue' : 'white'" class="btn btn-primary" [class.active]="isActive">Save</button>
     <input [value]="email" (keyup.enter)="email = $event.target.value; onKeyUp()"/>
-    <input [(ngModel))]="email" (keyup.enter)="onKeyUp()"/>
+    <input [(ngModel)]="email" (keyup.enter)="onKeyUp()"/>
     {{text | summary: 10}}
     `
 })
