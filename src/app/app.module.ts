@@ -7,7 +7,9 @@ import { AppComponent } from './app.component';
 import { CoursesComponent } from './courses.component';
 import { CourseComponent } from './course/course.component';
 
+// 装饰器
 @NgModule({
+  // 此处定义包含在该module中的所有 components
   declarations: [
     AppComponent,
     CoursesComponent,
@@ -17,6 +19,7 @@ import { CourseComponent } from './course/course.component';
     BrowserModule,
     AppRoutingModule
   ],
+  // Register dependency. So Angular can do dependency injection
   providers: [
     CoursesService
   ],
