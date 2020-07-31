@@ -24,5 +24,14 @@
 <h1>Angular</h1>
 <courses></courses>
 <div>
-  <app-favorite></app-favorite>
+  <!-- 这里的 change 是自己定义的 -->
+  <app-favorite [is-favorite]="post.isFavorite" (change)="onFavoriteChanged($event)"></app-favorite>
 </div>
+
+<bootstrap-panel>
+  <div class="heading">Heading</div>
+  <div class="body">
+    <h2>Body</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, necessitatibus!</p>
+  </div>
+</bootstrap-panel>

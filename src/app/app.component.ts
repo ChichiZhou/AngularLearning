@@ -8,4 +8,12 @@ import { Component } from '@angular/core';
 export class AppComponent {
   // title = 'hello-world';
   title = 'Angular Hello-World';
+  post = {
+    title: "Title",
+    isFavorite: true
+  }
+  
+  onFavoriteChanged(eventArgs){
+    console.log("Favorite Changed: " + eventArgs);
+  }
 }

@@ -31,25 +31,7 @@ import { CoursesService } from './courses.service';
     // Event Binding
     // 
 
-    template: `
-    <h2>{{ "Title: " + getTitle() }}</h2>
-    <ul>
-        <li *ngFor="let courseElement of courses">
-            {{ courseElement }}
-        </li>
-    </ul>
-
-    <img [src]="imageURL" />
-    <table>
-        <tr>
-            <td [attr.colspan]="colSpan"></td>
-        </tr>
-    </table>
-    <button (click)="onSave($event)" [style.backgourndColor]="isActive ? 'blue' : 'white'" class="btn btn-primary" [class.active]="isActive">Save</button>
-    <input [value]="email" (keyup.enter)="email = $event.target.value; onKeyUp()"/>
-    <input [(ngModel)]="email" (keyup.enter)="onKeyUp()"/>
-    {{text | summary: 10}}
-    `
+    templateUrl: './courses.component.html'
 })
 export class CoursesComponent{
     title = "List of Courses";
