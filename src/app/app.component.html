@@ -35,3 +35,24 @@
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, necessitatibus!</p>
   </div>
 </bootstrap-panel>
+
+<div *ngIf="courses.length > 0; then coursesList else noCourses"></div>
+<ng-template #coursesList>
+  List of courses
+</ng-template>
+<ng-template #noCourses>
+  Non courses
+</ng-template>
+
+<!-- nav nav-pills 是从 bootstrap 来的 -->
+<ul class="nav nav-pills">
+  <!-- 这里的 active 是从 bootstrap 中来的 -->
+  <li class="active"><a href="">Map view</a></li>
+  <li><a href="">List view</a></li>
+</ul>
+
+<div>
+  <div>
+    Map View Content
+  </div>
+</div>
