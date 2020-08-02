@@ -14,8 +14,9 @@ export class AppComponent {
     isFavorite: true
   };
 
-  
+  // 如果点击 app-favorite， 则会执行下面这个方法
   onFavoriteChanged(eventArgs){
     console.log("Favorite Changed: " + eventArgs);
+
   }
 }

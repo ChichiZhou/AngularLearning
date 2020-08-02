@@ -25,15 +25,17 @@
 <courses></courses>
 <div>
   <!-- 这里的 change 是自己定义的 -->
-  <app-favorite [is-favorite]="post.isFavorite" (change)="onFavoriteChanged($event)"></app-favorite>
+  <app-favorite [is-favorite]="post.isFavorite" (changeThisStar)="onFavoriteChanged($event)"></app-favorite>
 </div>
 
+<app-favorite></app-favorite>
+
 <bootstrap-panel>
-  <div class="heading">Heading</div>
-  <div class="body">
+  <ng-container class="heading">Heading</ng-container>
+  <ng-container class="body">
     <h2>Body</h2>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, necessitatibus!</p>
-  </div>
+  </ng-container>
 </bootstrap-panel>
 
 <div *ngIf="courses.length > 0; then coursesList else noCourses"></div>
