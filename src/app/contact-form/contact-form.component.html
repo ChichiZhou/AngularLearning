@@ -1,12 +1,42 @@
+<!-- Angular by Default apply a directive called ngForm -->
 <form>
+  <!-- bootstrap 要求把 label 和 input 放到 form-group 中 -->
   <div class="form-group">
     <label for="firstName">First Name</label>
-    <input ngModel name="firstName" id="firstName" type="text" class="form-control">
+    <!-- form-control 是 bootstrap 中的 class -->
+    <!-- 要想用 ngModel 必须有 name -->
+    <!-- ngModel 是一个 Object 其中有一个property叫 control 这个 control 是一个 FormControl 对象（这个是 angular 自己创建的），就是用来表示input field 的一些属性-->
+    <input required ngModel name="firstName" #HeyForm="ngModel" (change)="log(HeyForm)" id="firstName" type="text" class="form-control">
+    <div class="alert alert-danger" *ngIf="HeyForm.touched && !HeyForm.valid"></div>
   </div>
 
   <div class="form-group">
     <label for="comment">Comment</label>
     <textarea id="comment" cols="30" rows="10" class="form-control"></textarea>
   </div>
+
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" ngModel name="isSubscribe"> Subscribe to mailing list
+    </label>
+  </div>
+
+  <div class="form-group">
+    <label for="contactMethod">
+      Contact Method
+    </label>
+    <select ngModel name="contactMethod" id="contactMethod" class="form-control">
+      <option value=""></option>
+      <option *ngFor="let method of contactMethods" [value]="method.id">{{method.name}}</option>
+    </select>
+  </div>
+
+  <div *ngFor="let method of contactMethods" class="radio">
+    <label>
+      <input type="radio" name="contactMethod" [value]="method.id">
+      method.name
+    </label>
+  </div>
+
   <button class="btn btn-primary">Submit</button>
 </form>
