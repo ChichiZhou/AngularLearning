@@ -1,6 +1,7 @@
+import { SignupFormComponent } from './signup-form/signup-form.component';
 import { CoursesService } from './courses.service';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -17,6 +18,7 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
   // 此处定义包含在该module中的所有 components
   declarations: [
     AppComponent,
+    SignupFormComponent,
     CoursesComponent,
     CourseComponent,
     SummaryPipe,
@@ -27,7 +29,8 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   // Register dependency. So Angular can do dependency injection
   providers: [
