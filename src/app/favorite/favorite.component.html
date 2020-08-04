@@ -1,1 +1,15 @@
-<span class="glyphicon" [class.glyphicon-star]="isFavorite" [class.glyphicon-star-empty]="!isFavorite" (click)="onClick()"></span>
+<!-- style.color 表示对于这个 span 来说的 style，是 DOM 的属性-->
+<!-- [style.color]="isFavorite ? 'rosybrown' : 'royalblue'" -->
+<span
+  class="glyphicon"
+  [class.glyphicon-star]="isFavorite"
+  [class.glyphicon-star-empty]="!isFavorite"
+  (click)="onClick()"
+  [class.changeColor1]="isFavorite"
+  [class.changeColor2]="!isFavorite"
+  >THIS IS THE CONTENT
+</span>
+
+<input type="text" [(ngModel)]="title" />
+<br />
+{{ title }}

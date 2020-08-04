@@ -1,33 +1,33 @@
 <h2>{{ "Title: " + getTitle() }}</h2>
 <!-- 下面是 proerty binding 的写法 -->
 <!-- 如果内容是字符串的话，可以用 {{ }} -->
-<h2 [textContent]="getTitle()"></h2>      
+<h2 [textContent]="getTitle()"></h2>
 <ul>
-    <li *ngFor="let courseElement of courses">
-        {{ courseElement }}
-    </li>
+  <li *ngFor="let courseElement of courses">
+    {{ courseElement }}
+  </li>
 </ul>
 
 <img [src]="imageURL" />
 
 <!-- Attribute binding -->
 <table>
-    <tr>
-        <td [attr.colspan]="colSpan"></td>
-    </tr>
+  <tr>
+    <td [attr.colspan]="colSpan"></td>
+  </tr>
 </table>
 
-<button (click)="onSave($event)" [style.backgourndColor]="isActive ? 'blue' : 'white'" class="btn btn-primary" [class.active]="isActive">
-    Save
+<!-- Class Binding 和 Style binding -->
+<button
+  (click)="onSave($event)"
+  [style.color]="isActive ? 'blue' : 'white'"
+  class="btn btn-primary"
+  [class.active]="isActive"
+>
+  Save
 </button>
 
+<!-- Two way binding Banan in the box [()] -->
 <div>
-    <input [value]="email" (keyup.enter)="email = $event.target.value; onKeyUp()"/>
+  <input [(ngModel)]="email" (keyup.enter)="onKeyUp()" />
 </div>
-
-<!-- two way binding -->
-<div>
-    <input [(ngModel)]="email" (keyup.enter)="onKeyUp()"/>
-</div>
-
-<p>{{text | summary: 10}}</p>

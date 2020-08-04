@@ -1,3 +1,11 @@
-.glyphicon{
-    color:red;
+.changeColor1 {
+  color: rosybrown;
+}
+
+.changeColor2 {
+  color: royalblue;
+}
+
+.glyphicon:hover {
+  color: red;
 }
