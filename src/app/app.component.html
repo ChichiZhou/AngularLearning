@@ -3,6 +3,7 @@
 <courses></courses>
 <div>
   <!-- 这里的 change 是自己定义的 -->
+  <!-- Component API 这里的 is-favorite 是 @Input -->
   <app-favorite
     [is-favorite]="post.isFavorite"
     (changeThisStar)="onFavoriteChanged($event)"
@@ -13,13 +14,12 @@
 
 <bootstrap-panel>
   <ng-container class="heading">Heading</ng-container>
-  <ng-container class="body">
+  <div class="body">
     <h2>Body</h2>
     <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
-      necessitatibus!
+      美国佬 草你妈啊
     </p>
-  </ng-container>
+  </div>
 </bootstrap-panel>
 
 <div *ngIf="courses.length > 0; then coursesList; else noCourses"></div>
@@ -33,7 +33,8 @@
 <!-- nav nav-pills 是从 bootstrap 来的 -->
 <ul class="nav nav-pills">
   <!-- 这里的 active 是从 bootstrap 中来的 -->
-  <li class="active"><a href="">Map view</a></li>
+  <!-- active 表示什么？？？ -->
+  <li><a href="">Map view</a></li>
   <li><a href="">List view</a></li>
 </ul>
 
