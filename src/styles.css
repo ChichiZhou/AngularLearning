@@ -1,5 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 /* 在 node_modules 里 */
+/* 这里 import 一下，才能在其他地方使用 Bootstrap */
 @import "~bootstrap/dist/css/bootstrap.css";
 
-body { padding: 200px;} 
+body {
+  padding: 200px;
+}
+/* 设置 invalid 时候的边界显示 */
+.form-control.ng-touched.ng-invalid {
+  border: 2px solid red;
+}

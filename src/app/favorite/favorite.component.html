@@ -1,5 +1,7 @@
 <!-- style.color 表示对于这个 span 来说的 style，是 DOM 的属性-->
 <!-- [style.color]="isFavorite ? 'rosybrown' : 'royalblue'" -->
+<!-- 如何想要加不同的效果，就再创建不同的节点 -->
+<!-- Event binding 实际上是给这个 event 分配了一个 event handler。告诉 DOM 如果这个 evnet 发生，应该跑哪个方法 -->
 <span
   class="glyphicon"
   [class.glyphicon-star]="isFavorite"
@@ -8,6 +10,7 @@
   [class.changeColor2]="!isFavorite"
   (click)="onClick()"
   >THIS IS THE CONTENT
+  <span style="color: red;">张一鸣断子绝孙</span>
 </span>
 
 <input type="text" [(ngModel)]="title" />

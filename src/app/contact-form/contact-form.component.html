@@ -1,14 +1,21 @@
-<!-- Angular by Default apply a directive called ngForm -->
 <!-- 这里所有的 class 都是 bootstrap 干的好事！！！！！！！！！ -->
-<form>
+<!-- Angular by Default apply a directive called ngForm -->
+<!-- ngForm 的一个作用是能够控制 submit button -->
+<form #HeyNgForm="ngForm" (ngSubmit)="submit(HeyNgForm)">
   <!-- bootstrap 要求把 label 和 input 放到 form-group 中 -->
   <div class="form-group">
     <label for="firstName">First Name</label>
     <!-- form-control 是 bootstrap 中的 class -->
     <!-- 要想用 ngModel 必须有 name -->
-    <!-- ngModel 是一个 Object 其中有一个property叫 control 这个 control 是一个 FormControl 对象（这个是 angular 自己创建的），就是用来表示input field 的一些属性-->
+    <!-- Control object 是用来对 input field 进行 validation -->
+    <!-- Angular 通过 ngModel 为你创建一个 NgModel 这个NgModel中含有一个property叫做 control object -->
+    <!-- 这里的 #HeyForm 表示对创建的 ngModel object 的引用 -->
+    <!-- ngModel 中含有 control -->
     <input
       required
+      minlength="3"
+      maxlength="10"
+      pattern="banana"
       ngModel
       name="firstName"
       #HeyForm="ngModel"
@@ -17,10 +24,13 @@
       type="text"
       class="form-control"
     />
-    <div
-      class="alert alert-danger"
-      *ngIf="HeyForm.touched && !HeyForm.valid"
-    ></div>
+    <div class="alert alert-danger" *ngIf="HeyForm.touched && !HeyForm.valid">
+      <div *ngIf="HeyForm.errors.required">First Name is required</div>
+      <div *ngIf="HeyForm.errors.minlength">
+        The minlength is {{ HeyForm.errors.minlength.requiredLength }}
+      </div>
+      <div *ngIf="HeyForm.errors.pattern">First Name is required</div>
+    </div>
   </div>
 
   <div class="form-group">
@@ -59,5 +69,16 @@
     </label>
   </div>
 
-  <button class="btn btn-primary">Submit</button>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" ngModel name="isSubscribe" /> Subscribe to mailing
+      list
+    </label>
+  </div>
+
+  <p>
+    {{ HeyNgForm.value | json }}
+  </p>
+
+  <button class="btn btn-primary" [disabled]="!HeyNgForm.valid">Submit</button>
 </form>

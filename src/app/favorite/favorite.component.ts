@@ -14,6 +14,7 @@ import { EventEmitter } from "@angular/core"; // import EventEmitter
 // Component 的 public API 指的是，其它 component 能够对这个 component 进行某些操作
 export class FavoriteComponent {
   // 这里用到了 alias，因为当你改变 component 的时候，template 没有改变
+  // Input property 指的是
   @Input("is-favorite") isFavorite = false; // 这样可以将 isFavorite 设定成能从外界赋值的状态
 
   // 这里用到了 alias，因为当你改变 component 的时候，template 没有改变
